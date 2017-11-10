@@ -10,68 +10,77 @@
       {{ item }}
     </ion-item>
   </ion-list>
-</ion-content>
-
-<ion-content padding>
 
 
-    <!-- Refresh to get the new posts -->
-    <ion-refresher pulling-text="Kéo xuống để nạp lại..." on-refresh="getNewData()">
-    </ion-refresher>
 
-    <div ng-if1="is_trend_feed || is_category_feed" class="row filtered-feed-header-outer">
-      <div ng-if="is_category_feed" class="col filtered-feed-header">
-        <div multi-bg="[current_category.image]" interval="3000" helper-class="category-with-image">
-          <div class="filtered-feed-header-content">
-            <h2 class="header-title"></h2>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-    
-    <ion-card class="card new-post">
-    
-      <ion-list>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="https://scontent.fhan5-1.fna.fbcdn.net/v/t1.0-0/p110x80/20525829_10155465935304827_6180149545356342170_n.jpg?oh=482c03a6c76b493e2a6ef0bcf11e2fb9&oe=5A70EFF9">
-          </ion-avatar>          
-          <a class="new-post-call-to-action" (click)="newStatusPost({charNum: 0})">
-            <h3 class="new-post-copy">Bạn đang canh tác gì?</h3>
-          </a>
-        </ion-item>
-      </ion-list>
-
-      <ion-grid class="tabs tabs-icon-left">
-        <ion-row>
-          <ion-col class="tab-item" (click)="newStatusPost({charNum: 0})">
-            <ion-icon name="create"></ion-icon>
-            Nhật ký
-          </ion-col>
-          <ion-col class="tab-item" (click)="newImageStatusPost()">
-            <ion-icon name="camera"></ion-icon>
-            Hình ảnh
-          </ion-col>
-          <ion-col class="tab-item" (click)="checkinStatusPost()">
-            <ion-icon name="pin"></ion-icon>
-            Ra vườn
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      
-      
-
-    </ion-card>
-    
-    
-
-    <!-- Infinit scroll -->
-    <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMoreData()" distance="2%">
-    </ion-infinite-scroll>
-
-
+  <!-- Refresh to get the new posts -->
+  <ion-refresher pulling-text="Kéo xuống để nạp lại..." on-refresh="getNewData()">
+  </ion-refresher>
 
   
+  <ion-card class="card new-post">    
+    <ion-list>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="https://scontent.fhan5-1.fna.fbcdn.net/v/t1.0-0/p110x80/20525829_10155465935304827_6180149545356342170_n.jpg?oh=482c03a6c76b493e2a6ef0bcf11e2fb9&oe=5A70EFF9">
+        </ion-avatar>          
+        <a class="new-post-call-to-action" (click)="newStatusPost({charNum: 0})">
+          <h3 class="new-post-copy">Bạn đang canh tác gì?</h3>
+        </a>
+      </ion-item>
+    </ion-list>
+
+    <ion-grid class="tabs tabs-icon-left">
+      <ion-row>
+        <ion-col class="tab-item" (click)="newStatusPost({charNum: 0})">
+          <ion-icon name="create"></ion-icon>
+          Nhật ký
+        </ion-col>
+        <ion-col class="tab-item" (click)="newImageStatusPost()">
+          <ion-icon name="camera"></ion-icon>
+          Hình ảnh
+        </ion-col>
+        <ion-col class="tab-item" (click)="checkinStatusPost()">
+          <ion-icon name="pin"></ion-icon>
+          Ra vườn
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+    
+
+  </ion-card>
+  
+  <ion-card class="feed-cards-outer">
+  
+    <div *ngIf="cards.length > 0" ng-repeat="card in cards" class="post-card-outer">
+      <!-- <section ng-include="'views/app/partials/feed-post-card.html'" class="post-card-outer"></section> -->
+      <section ng-include="'views/app/partials/feed-post-card.html'"></section>
+    </div>
+    <div *ngIf="cards.length == 0" class="row row-center empty-feed-outer">
+      <div class="col">
+        <i class="empty-feed-icon icon ion-sad-outline"></i>
+        <h2 class="empty-feed-text">Không có Bài viết nào</h2>
+      </div>
+    </div>
+  
+  </ion-card>
+
+
+  <ion-list>
+    <ion-item *ngFor="let post of cards">
+      <ion-avatar item-start>
+        <img src="{{post.picture}}">
+      </ion-avatar>
+      <!--h2>{{user.first_name}} {{user.last_name}}</h2-->
+    </ion-item>
+  </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage" distance="2%">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  
+
 
 </ion-content>
