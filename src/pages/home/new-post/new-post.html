@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ghi Nhật ký
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Huỷ bỏ</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="new-status-post-view">
+
+  <ion-list>
+
+    <!-- Item with left and right buttons -->
+    <ion-item>      
+      <span item-start>Tới: </span>
+      <i class="audience-icon" ng-class="{'ion-earth': (status_post.audience == 'public'), 'ion-person-stalker': (status_post.audience == 'friends'), 'ion-locked': (status_post.audience == 'only-me')}"></i>
+      <span class="selected-audience">{{ status_post.audience }}</span>
+      
+      <select item-end ng-model="status_post.audience" class="audience-select">
+        <option value="public" selected>Tất cả</option>
+        <option value="friends">Đối tác</option>
+        <option value="only-me">Chỉ mình Tôi</option>
+      </select>
+    </ion-item>
+
+  </ion-list>
+
+
+  
+  <div class="row post-creation">
+    <div class="col">
+    
+      <ion-list>
+        <ion-item>
+          <ion-avatar item-start>
+            <ion-img src="{{loggedUser.picture}}"></ion-img>
+          </ion-avatar>          
+          <span><b>{{loggedUser.name.first}}</b> đang ở <b>{{status_post.location}}</b></span>
+          <div class="row textarea-wrapper">
+            <div class="col">
+              <textarea msd-elastic="\n" ng-model="status_post.text" placeholder="Chia sẻ gì đó..."></textarea>
+            </div>
+          </div>
+        </ion-item>
+      </ion-list>
+    
+      
+      
+      <div class="row post-images-outer" ng-show="status_post.images.length > 0">
+        <div class="col post-images-wrapper">
+          <div class="post-image" ng-repeat="img in status_post.images">
+            <div class="row">
+              <div class="col">
+                <div class="item item-image">
+                  <img src="{{img}}">
+                </div>
+                <a class="button button-icon light icon ion-trash-b remove-image-btn" ng-click="removeImage(img)"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row add-photos-outer">
+        <div class="col">
+          <button class="button button-block button-outline icon-left ion-plus-round" ng-click="openImagePicker()">
+            Thêm Hình ảnh
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,16 @@
+page-home {
+  .card.new-post
+  {
+    .new-post-call-to-action
+    {
+      .new-post-copy
+      {
+        height: $item-md-avatar-size;
+        line-height: $item-md-avatar-size;
+        font-size: 16px;
+        font-weight: 400;
+        color: $new-post-card-color;
+      }
+    }
+  }
+}
