@@ -24,3 +24,18 @@ $ ionic cordova run ios
 
 Substitute ios for android if not on a Mac.
 
+### Hướng dẫn cài MQTT:
+
+Trong thư mục dự án:
+
+```bash
+$ npm install angular2-mqtt --save
+```
+
+Cài TypeScript:
+
+```bash
+npm install --save @types/node
+```
+
+### Hết cài MQTT

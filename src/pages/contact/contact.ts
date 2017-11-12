@@ -1,14 +1,37 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+import { Observable } from 'rxjs/Observable';
+
+
+import {
+  MqttMessage,
+  MqttModule,
+  MqttService
+} from 'ngx-mqtt';
+
+
+
 @Component({
   selector: 'page-contact',
-  templateUrl: 'contact.html'
+  templateUrl: 'contact.html'  
 })
 export class ContactPage {
+  myMessage;
 
-  constructor(public navCtrl: NavController) {
+  public myOtherMessage$: Observable<MqttMessage>;
 
+  constructor(private _mqttService: MqttService) {
+    this._mqttService.observe('testtopic123/#').subscribe((message: MqttMessage) => {
+      this.myMessage = message.payload.toString();
+    });
+    this.myOtherMessage$ = this._mqttService.observe('my/other/topic');
+  }
+
+  public unsafePublish(topic: string, message: string): void {
+    this._mqttService.unsafePublish(topic, message, {qos: 1, retain: true});
   }
 
 }
+
+

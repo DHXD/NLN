@@ -17,6 +17,40 @@ import { RestApiProvider } from '../providers/rest-api/rest-api';
 
 import { HttpModule } from '@angular/http';
 
+import {
+  /*MqttMessage,
+  MqttModule,
+  MqttService,*/
+  MqttServiceOptions,
+  /*OnMessageEvent*/
+} from 'ngx-mqtt';
+
+export const MQTT_SERVICE_OPTIONS = {
+  hostname: 'broker.mqttdashboard.com',
+  port: 8000,
+  path: '/mqtt'
+};
+/*
+export const MQTT_SERVICE_OPTIONS: MqttServiceOptions  = {
+  hostname: 'test.mosquitto.org',
+  port: 8080,
+  path: '/mqtt'
+};
+*/
+
+
+export function mqttServiceFactory() {
+  return new MqttService(MQTT_SERVICE_OPTIONS);
+}
+
+import {
+  MqttMessage,
+  MqttModule,
+  MqttService
+} from 'ngx-mqtt';
+
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -32,6 +66,10 @@ import { HttpModule } from '@angular/http';
     IonicModule.forRoot(MyApp),
     HttpClientModule,
     HttpModule,
+    MqttModule.forRoot({
+      provide: MqttService,
+      useFactory: mqttServiceFactory
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
