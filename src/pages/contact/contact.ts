@@ -16,16 +16,17 @@ import {
   selector: 'page-contact',
   templateUrl: 'contact.html'  
 })
+
 export class ContactPage {
   myMessage;
 
   public myOtherMessage$: Observable<MqttMessage>;
 
   constructor(private _mqttService: MqttService) {
-    this._mqttService.observe('testtopic123/#').subscribe((message: MqttMessage) => {
+    this._mqttService.observe('mqtt-out').subscribe((message: MqttMessage) => {
       this.myMessage = message.payload.toString();
     });
-    this.myOtherMessage$ = this._mqttService.observe('my/other/topic');
+    this.myOtherMessage$ = this._mqttService.observe('mqtt-out');
   }
 
   public unsafePublish(topic: string, message: string): void {

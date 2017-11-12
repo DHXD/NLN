@@ -17,6 +17,11 @@ import { RestApiProvider } from '../providers/rest-api/rest-api';
 
 import { HttpModule } from '@angular/http';
 
+
+//import {AppComponent} from './app.component';
+import {GaugesModule} from 'ng-canvas-gauges/lib';
+
+
 import {
   /*MqttMessage,
   MqttModule,
@@ -30,13 +35,16 @@ export const MQTT_SERVICE_OPTIONS = {
   port: 8000,
   path: '/mqtt'
 };
+
+
 /*
 export const MQTT_SERVICE_OPTIONS: MqttServiceOptions  = {
-  hostname: 'test.mosquitto.org',
-  port: 8080,
+  hostname: '172.16.0.100',
+  port: 1883,
   path: '/mqtt'
 };
 */
+
 
 
 export function mqttServiceFactory() {
@@ -59,7 +67,8 @@ import {
       NewPostPage,
       //ModalContentPage,
     ContactPage,        
-    TabsPage
+    TabsPage,
+    //AppComponent    // gauge module
   ],
   imports: [
     BrowserModule,
@@ -69,9 +78,12 @@ import {
     MqttModule.forRoot({
       provide: MqttService,
       useFactory: mqttServiceFactory
-    })
+    }),
+    GaugesModule      // gauge module
   ],
-  bootstrap: [IonicApp],
+  bootstrap: [
+    IonicApp     
+  ],    
   entryComponents: [
     MyApp,
     NotifyPage,
