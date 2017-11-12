@@ -1,3 +1,20 @@
 page-notify {
-
+    .content{
+        background-color: color($colors,secondary);
+      }
+    .icon-setting{
+        width: 80%;
+    }
+    ion-toggle{
+        zoom: 1.2;
+    }
+    .center{
+        margin: auto;
+    }
+    .scroll-content {    
+        text-align: center;
+      }
+    .icon-sensor{
+        font-size: 32px;
+    }
 }

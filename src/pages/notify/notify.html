@@ -7,11 +7,128 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+  
+    <ion-card>
+        
+          <ion-card-header>
+            <h2>Quản lý chuồng bò</h2>
+          </ion-card-header>
+        
+          <ion-card-content>
+            <ion-grid>
+                <ion-row>
+                  
+                  <ion-col col-6>
+                    <img class="icon-setting center" src="https://www.iconexperience.com/_img/g_collection_png/standard/512x512/fan.png"/>
+                    <ion-toggle class="center">
+                    </ion-toggle>
+                  </ion-col>
+
+                  <ion-col col-6 class="icon-setting center">
+                      <img class="icon-setting" src="http://icons.veryicon.com/ico/Business/Or%20Application/light%20bulb.ico"/>
+                      <ion-toggle class="center">
+                      </ion-toggle>
+                  </ion-col>
+            
+                </ion-row>
+
+                <ion-row>
+                    
+                    <ion-col col-6>
+                      <img class="icon-setting center" src="data:image/png;base64,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"/>
+                      <ion-toggle class="center">
+                      </ion-toggle>
+                    </ion-col>
+  
+                    <ion-col col-6 class="icon-setting center">
+                        <img class="icon-setting" src="https://www.iconexperience.com/_img/g_collection_png/standard/512x512/fan.png"/>
+                        <ion-toggle class="center">
+                        </ion-toggle>
+                    </ion-col>
+              
+                  </ion-row>
+                
+            </ion-grid>
+          </ion-card-content>
+        
+    </ion-card>
+
+    <ion-card>
+          <ion-card-header>
+            <h2>Nhiệt độ</h2>
+          </ion-card-header>
+          <ion-card-content>
+              <h1>{{myMessage}}</h1>
+              <linear-gauge
+              width="100"
+              height="300"
+              units="°C"
+              title="Nhiệt độ"
+              min-value="0"
+              max-value="50"
+              major-ticks="[0,10,20,30,40,50]"
+              minor-ticks="5"
+              stroke-ticks="true"
+              ticks-width="15"
+              ticks-width-minor="7.5"
+              highlights='[ {"from": 0, "to": 10, "color": "rgba(0,0, 255, .3)"},
+              {"from": 10, "to": 50, "color": "rgba(255, 0, 0, .3)"} ]'
+              color-major-ticks="#ffe66a"
+              color-minor-ticks="#ffe66a"
+              color-title="#000"
+              color-units="#ccc"
+              color-numbers="#000"
+              color-plate="#44ccf3"
+              color-plate-end="#327ac0"
+              border-shadow-width="0"
+              borders="false"
+              border-radius="10"
+              needle-type="arrow"
+              needle-width="3"
+              animation-duration="250"
+              animation-rule="linear"
+              animated-value="true"
+              color-needle="#222"
+              color-needle-end=""
+              color-bar-progress="#327ac0"
+              color-bar="#f5f5f5"
+              bar-stroke="0"
+              bar-width="8"
+              bar-begin-circle="false"    
+              [attr.value]="[myMessage]"
+              ></linear-gauge>
+          </ion-card-content>
+
+          <ion-grid>
+              <ion-row>
+                <ion-col col-3>
+                  <ion-icon class="icon-sensor" name="thermometer"></ion-icon>
+                  <p>Nhiệt độ</p>
+                </ion-col>
+
+                <ion-col col-3 class="icon-setting center">
+                  <ion-icon class="icon-sensor" name="bonfire"></ion-icon>
+                  <p>Ánh sáng</p>
+                </ion-col>
+
+                <ion-col col-3 class="icon-setting center">
+                  <ion-icon class="icon-sensor" name="battery-charging"></ion-icon>
+                  <p>Độ ẩm</p>
+                </ion-col>
+
+                <ion-col col-3 class="icon-setting center">
+                  <ion-icon class="icon-sensor" name="cloudy-night"></ion-icon>
+                  <p>Lực gió</p>
+                </ion-col>
+                
+                </ion-row> 
+          </ion-grid>
+    </ion-card>
+   
 </ion-content> 
+
+
+
+<h1>{{myMessage}}</h1>
+
+

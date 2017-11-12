@@ -61,9 +61,8 @@ export class HomePage implements OnInit {
     
   }
   
+  doInfinite(infiniteScroll) {
   
-  
-  doInfinite(infiniteScroll) {  
   
     this.page = this.page+1;
     setTimeout(() => {

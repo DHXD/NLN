@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { ionicBootstrap } from 'ionic-angular';
-
 import { FarmIoT }    from './farm-iot';
 import { FarmStock }  from './farm-stock'; 
 import { FarmGAP }    from './farm-gap'; 

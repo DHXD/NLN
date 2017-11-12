@@ -1,4 +1,8 @@
 page-home {
+  .content{
+    background-color: color($colors,secondary);
+  }
+  
   .card.new-post
   {
     .new-post-call-to-action
@@ -13,4 +17,6 @@ page-home {
       }
     }
   }
+
+ 
 }

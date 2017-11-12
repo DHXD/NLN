@@ -2,12 +2,12 @@
   <ion-toolbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
-    </button>
+    </button>  
     <ion-searchbar (input)="getItems($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="secondary">
   <ion-list>
     <ion-item *ngFor="let item of items">
       {{ item }}
@@ -20,7 +20,7 @@
   <ion-refresher pulling-text="Kéo xuống để nạp lại..." on-refresh="getNewData()">
   </ion-refresher>
 
-  
+<!-- card new post -->
   <ion-card class="card new-post">    
     <ion-list>
       <ion-item>
@@ -49,11 +49,11 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-    
-    
 
   </ion-card>
-  
+<!--End card new post -->
+
+<!-- none status -->
   <ion-card class="feed-cards-outer">
   
     <div *ngIf="cards.length > 0" ng-repeat="card in cards" class="post-card-outer">
@@ -68,35 +68,52 @@
     </div>
   
   </ion-card>
+<!--End none status -->
 
+<!-- template 1 status -->
+  <ion-card *ngFor="let card of cards; let i= index">
 
-   <ion-card>
-    <ion-card-header>
-      Infinity Scroll Example
-    </ion-card-header>
-    <ion-card-content>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </ion-card-content>
+      <ion-item>
+        <ion-avatar item-start>
+          <!--img src="{{user.avatar}}"-->     <!-- Get avatar here -->
+        </ion-avatar>
+        <!--h2>{{user.first_name}} {{user.last_name}}</h2-->
+        <p>Ngày 12 tháng 11</p>
+      </ion-item>
+    
+      <img src="http://afamilycdn.com/zoom/290_190/2017/t-1507085428222-0-0-375-600-crop-1510132428947.jpg">  <!-- {{cards[i].picture}} -->
+    
+      <ion-card-content>
+        <p>{{cards[i].title}}</p>
+      </ion-card-content>
+    
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>{{cards[i].likes}} Thích</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="text"></ion-icon>
+            <div>{{cards[i].comments}} Bình luận</div>
+          </button>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+            11giờ trước
+          </ion-note>
+        </ion-col>
+      </ion-row>
 
   </ion-card>
-  
-  
-  <ion-list>
-    <ion-item *ngFor="let user of users">
-      <ion-avatar item-start>
-        <img src="{{user.avatar}}">
-      </ion-avatar>
-      <h2>{{user.first_name}} {{user.last_name}}</h2>
-    </ion-item>
-  </ion-list>
+<!--End template 1 status -->
 
+<!-- Event when load more status -->
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage" distance="2%">
-    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Đang tải dữ liệu..."></ion-infinite-scroll-content>
   </ion-infinite-scroll>
-
-  
-
+<!-- End event when load more status -->
 
 </ion-content>
