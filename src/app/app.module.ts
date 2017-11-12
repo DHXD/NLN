@@ -7,7 +7,15 @@ import { NotifyPage } from '../pages/notify/notify';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { NewPostPage } from '../pages/home/new-post/new-post';
+
 import { TabsPage } from '../pages/tabs/tabs';
+import { FarmPage }     from '../pages/farm/farm';
+  import { FarmIoT }     from '../pages/farm/farm-iot';
+  import { FarmStock }     from '../pages/farm/farm-stock';
+  import { FarmGAP }     from '../pages/farm/farm-gap';
+
+import { ShopPage }     from '../pages/shop/shop';
+import { FoodPage }     from '../pages/food/food';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -22,13 +30,6 @@ import { HttpModule } from '@angular/http';
 import {GaugesModule} from 'ng-canvas-gauges/lib';
 
 
-import {
-  /*MqttMessage,
-  MqttModule,
-  MqttService,*/
-  MqttServiceOptions,
-  /*OnMessageEvent*/
-} from 'ngx-mqtt';
 
 export const MQTT_SERVICE_OPTIONS = {
   hostname: 'broker.mqttdashboard.com',
@@ -51,8 +52,7 @@ export function mqttServiceFactory() {
   return new MqttService(MQTT_SERVICE_OPTIONS);
 }
 
-import {
-  MqttMessage,
+import {  
   MqttModule,
   MqttService
 } from 'ngx-mqtt';
@@ -61,13 +61,19 @@ import {
 
 @NgModule({
   declarations: [
-    MyApp,
-    NotifyPage,
-    HomePage,
-      NewPostPage,
-      //ModalContentPage,
-    ContactPage,        
+    MyApp,    
     TabsPage,
+      NotifyPage,
+      HomePage,
+        NewPostPage,
+        //ModalContentPage,
+      ContactPage,        
+    FarmPage,
+      FarmIoT,
+      FarmStock,
+      FarmGAP,
+    ShopPage,
+    FoodPage
     //AppComponent    // gauge module
   ],
   imports: [
@@ -85,13 +91,19 @@ import {
     IonicApp     
   ],    
   entryComponents: [
-    MyApp,
-    NotifyPage,
-    ContactPage,
-    HomePage,
-      NewPostPage,
-      //ModalContentPage,
-    TabsPage
+    MyApp,    
+    TabsPage,
+      NotifyPage,
+      ContactPage,
+      HomePage,
+        NewPostPage,
+        //ModalContentPage,
+    FarmPage,
+      FarmIoT,
+      FarmStock,
+      FarmGAP,
+    ShopPage,
+    FoodPage
   ],
   providers: [
     StatusBar,
