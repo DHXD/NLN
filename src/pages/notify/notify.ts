@@ -8,7 +8,7 @@ import { RestApiProvider } from '../../providers/rest-api/rest-api';
 var database_json = 'http://nguoilamnong.vn/mxh/json';
 
 interface ItemsResponse {  
-  notify: string[];
+  friendRequest: string[];
 }
 
 import {
@@ -99,7 +99,7 @@ export class NotifyPage implements OnInit {
         
         
         
-        this.cards = data.notify;
+        this.cards = data.friendRequest;
         
         console.log(this.cards);
       },

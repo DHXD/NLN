@@ -10,15 +10,6 @@
 <ion-content>
   
   <ion-card>
-
-    <!-- <ion-item >
-      <ion-avatar item-left>
-        <img src="https://avatars.io/facebook/hvdai22796"/>
-      </ion-avatar>
-      <h3>Hoang Dai đã bình luận về bài viết của bạn.</h3>
-      <p><ion-icon name="text"></ion-icon> 3 giờ trước</p>
-    </ion-item> -->
-
 <!-- template 1 like notify -->
     <ion-card *ngFor="let user of users">
         <ion-item>
@@ -50,11 +41,10 @@
           <img src="{{user.avatar}}">     
         </ion-avatar>
         <h2>{{user.first_name}} {{user.last_name}} đã chia sẻ bài viết của bạn</h2>
-        <p><ion-icon name="md-share"></ion-icon> 2 giờ trước</p>   <!-- {{user.dateLike}} -->
+        <p><ion-icon name="md-share"></ion-icon> 2 giờ trước</p>   <!-- {{user.dateShare}} -->
       </ion-item>
 </ion-card>
 <!--End template 1 share notify -->
-
   </ion-card>
 <!-- Event when load more notify-->
 <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage" distance="2%">
