@@ -1,14 +1,23 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Contact
-    </ion-title>
-  </ion-navbar>
+  <ion-toolbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>  
+    <ion-searchbar (input)="getItems($event)"></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
-  <h1>{{myMessage}}</h1>
+  <ion-card>
+    <ion-item >
+      <ion-avatar item-left>
+        <img src="https://avatars.io/facebook/hvdai22796"/>
+      </ion-avatar>
+      <h3>Hoang Dai đã bình luận về bài viết của bạn.</h3>
+      
+    </ion-item>
+  </ion-card>
+  <!-- <h1>{{myMessage}}</h1>
      
     
   <linear-gauge
@@ -49,5 +58,5 @@
     bar-begin-circle="false"    
     [attr.value]="[myMessage]"
   ></linear-gauge>
-    
+     -->
 </ion-content>
