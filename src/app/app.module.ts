@@ -25,26 +25,36 @@ import { RestApiProvider } from '../providers/rest-api/rest-api';
 
 import { HttpModule } from '@angular/http';
 
+//import { MqttServiceOptions } from './mqtt.model';
 
-//import {AppComponent} from './app.component';
+import {  
+  MqttModule,
+  MqttService
+} from 'ngx-mqtt';
+
 import {GaugesModule} from 'ng-canvas-gauges/lib';
 
 
 
+/*
 export const MQTT_SERVICE_OPTIONS = {
   hostname: 'broker.mqttdashboard.com',
   port: 8000,
   path: '/mqtt'
 };
-
-
-/*
-export const MQTT_SERVICE_OPTIONS: MqttServiceOptions  = {
-  hostname: '172.16.0.100',
-  port: 1883,
-  path: '/mqtt'
-};
 */
+
+
+
+export const MQTT_SERVICE_OPTIONS = { //: MqttServiceOptions  = {
+  hostname: 'm14.cloudmqtt.com',
+  port: 38941,
+  path: '/mqtt',  
+  protocol: 'wss',
+  username: 'simsthvt',
+  password: 'ZpflTNbimUq-'
+};
+
 
 
 
@@ -52,10 +62,7 @@ export function mqttServiceFactory() {
   return new MqttService(MQTT_SERVICE_OPTIONS);
 }
 
-import {  
-  MqttModule,
-  MqttService
-} from 'ngx-mqtt';
+
 
 
 
