@@ -13,17 +13,14 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class RestApiProvider {
 
-  private apiUrl = 'https://reqres.in/api/';
-  //private apiUrl = '/database.json';
-  
 
   constructor(public http: Http) {
     console.log('Hello RestApiProvider Provider');
   }
   
   
-  getUsers(page): Observable<string[]> {
-    return this.http.get(this.apiUrl+"users?page="+page)
+  getUsers(page, apiUrl): Observable<string[]> {
+    return this.http.get(apiUrl+"users?page="+page)
                     .map(this.extractData)
                     .catch(this.handleError);
   }

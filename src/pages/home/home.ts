@@ -28,6 +28,8 @@ export class HomePage implements OnInit {
   cards = [];
   data_results: string[];
   
+  apiUrl = 'https://reqres.in/api/';
+  
   // REST sample
   data: any;
   users: string[];
@@ -45,7 +47,9 @@ export class HomePage implements OnInit {
   }
   
   getUsers() {
-    this.restApi.getUsers(this.page)
+  
+  
+    this.restApi.getUsers(this.page, this.apiUrl)
        .subscribe(
          res => {
            this.data = res;
@@ -66,7 +70,7 @@ export class HomePage implements OnInit {
   
     this.page = this.page+1;
     setTimeout(() => {
-      this.restApi.getUsers(this.page)
+      this.restApi.getUsers(this.page, this.apiUrl)
          .subscribe(
            res => {
              this.data = res;

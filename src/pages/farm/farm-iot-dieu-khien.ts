@@ -10,11 +10,11 @@ import {
 } from 'ngx-mqtt';
 
 @Component({
-  selector: 'page-notify',
-  templateUrl: 'notify.html'
+  selector: 'page-farm-iot-dieu-khien',
+  templateUrl: 'farm-iot-dieu-khien.html'
 })
 
-export class NotifyPage {
+export class FarmIoTDieuKhienPage {
   myMessage;
     public myOtherMessage$: Observable<MqttMessage>;
     
