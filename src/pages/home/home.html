@@ -8,6 +8,7 @@
 </ion-header>
 
 <ion-content color="secondary">
+  <ion-card>
   <ion-list>
     <ion-item *ngFor="let item of items">
       {{ item }}
@@ -100,16 +101,25 @@
             <div>42 Bình luận</div>              <!-- {{user.commented}} -->
           </button>
         </ion-col>
-        <ion-col center text-center>
-          <ion-note>
-            11 giờ trước                         <!-- {{user.timeago}} -->
-          </ion-note>
-        </ion-col>
+
+        <ion-col>
+            <button ion-button icon-left clear small>
+              <ion-icon name="md-share"></ion-icon>
+              <div>2 Chia sẻ</div>              <!-- {{user.shared}} -->
+            </button>
+          </ion-col>
+
+        <!-- <ion-col center text-center> -->
+          <!-- <ion-note>
+            11 giờ trước              -->
+                        <!-- {{user.timeago}} -->
+          <!-- </ion-note>
+        </ion-col> -->
       </ion-row>
 
   </ion-card>
 <!--End template 1 status -->
-
+</ion-card>
 <!-- Event when load more status -->
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage" distance="2%">
       <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Đang tải dữ liệu..."></ion-infinite-scroll-content>
