@@ -1,5 +1,10 @@
-<ion-tabs tabsPlacement="top">
-  <ion-tab [root]="farmTab1Root" tabTitle="" tabIcon="home"></ion-tab>
-  <ion-tab [root]="farmTab2Root" tabTitle="" tabIcon="notifications"></ion-tab>
-  <ion-tab [root]="farmTab3Root" tabTitle="" tabIcon="contacts"></ion-tab>
-</ion-tabs> 
+<ion-header>
+    <ion-toolbar color="primary">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>  
+      <ion-searchbar (input)="getItems($event)"></ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
