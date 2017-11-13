@@ -71,38 +71,38 @@
 <!--End none status -->
 
 <!-- template 1 status -->
-  <ion-card *ngFor="let card of cards; let i= index">
+  <ion-card *ngFor="let user of users">
 
       <ion-item>
         <ion-avatar item-start>
-          <!--img src="{{user.avatar}}"-->     <!-- Get avatar here -->
+          <img src="{{user.avatar}}">     
         </ion-avatar>
-        <!--h2>{{user.first_name}} {{user.last_name}}</h2-->
-        <p>Ngày 12 tháng 11</p>
+        <h2>{{user.first_name}} {{user.last_name}}</h2>
+        <p>Ngày 12 tháng 11</p>                   <!-- {{user.datePosted}} -->
       </ion-item>
     
-      <img src="http://afamilycdn.com/zoom/290_190/2017/t-1507085428222-0-0-375-600-crop-1510132428947.jpg">  <!-- {{cards[i].picture}} -->
+      <img src="http://afamilycdn.com/zoom/290_190/2017/t-1507085428222-0-0-375-600-crop-1510132428947.jpg">  <!-- {{user.picture}} -->
     
       <ion-card-content>
-        <p>{{cards[i].title}}</p>
+        <p>Hôm nay thu hoạch được nhiều quá</p>   <!-- {{user.title}} -->
       </ion-card-content>
     
       <ion-row>
         <ion-col>
           <button ion-button icon-left clear small>
             <ion-icon name="thumbs-up"></ion-icon>
-            <div>{{cards[i].likes}} Thích</div>
+            <div>15 Thích</div>                  <!-- {{user.liked}} -->
           </button>
         </ion-col>
         <ion-col>
           <button ion-button icon-left clear small>
             <ion-icon name="text"></ion-icon>
-            <div>{{cards[i].comments}} Bình luận</div>
+            <div>42 Bình luận</div>              <!-- {{user.commented}} -->
           </button>
         </ion-col>
         <ion-col center text-center>
           <ion-note>
-            11giờ trước
+            11 giờ trước                         <!-- {{user.timeago}} -->
           </ion-note>
         </ion-col>
       </ion-row>
